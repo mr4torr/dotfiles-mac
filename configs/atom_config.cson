@@ -1,0 +1,50 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        red: 255
+        green: 167
+        blue: 38
+        alpha: 1
+      accentColor:
+        red: 159
+        green: 105
+        blue: 24
+        alpha: 1
+      predefinedColor: "Orange"
+    fonts:
+      fontSize: 15
+    tabs:
+      compactTabs: true
+    treeView:
+      blendTabs: false
+      compactList: true
+    ui:
+      panelContrast: true
+  core:
+    disabledPackages: [
+      "tool-bar"
+      "vim-mode"
+      "color-picker"
+      "atom-color-highlight"
+      "language-slim"
+      "es6-javascript"
+    ]
+    excludeVcsIgnoredPaths: false
+    themes: [
+      "atom-material-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontSize: 13
+    invisibles: {}
+  "exception-reporting":
+    userId: "88bb1323-f0a8-5d73-db9f-f207256d256c"
+  "file-icons":
+    forceShow: true
+  "tool-bar":
+    position: "Right"
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
