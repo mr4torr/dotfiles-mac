@@ -26,12 +26,3 @@ else
 	brew cask install google-chrome
 	ok "OK"
 fi
-
-# google-chrome
-if which google-chrome &> /dev/null; then
-	msg_checking "google-chrome"
-else
-	msg_install "google-chrome" "brew install google-chrome"
-	brew cask install google-chrome
-	ok "OK"
-fi

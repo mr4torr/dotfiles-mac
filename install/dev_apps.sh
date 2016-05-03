@@ -18,6 +18,7 @@ else
 	ok "OK"
 fi
 
+
 # postman
 if which postman &> /dev/null; then
 	msg_checking "postman"
@@ -36,6 +37,16 @@ else
 	brew install neovim/neovim/neovim
 	ok "OK"
 fi
+
+# fish
+if which fish &> /dev/null; then
+	msg_checking "fish"
+else
+	msg_install "fish" "brew install fish"
+	brew install fish
+	ok "OK"
+fi
+
 
 # atom
 if which atom &> /dev/null; then
