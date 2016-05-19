@@ -85,3 +85,12 @@ else
 	brew cask install mongohub
 	ok "OK"
 fi
+
+# sshpass
+if which sshpass &> /dev/null; then
+	msg_checking "sshpass"
+else
+	msg_install "sshpass" "brew install sshpass"
+	brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+	ok "OK"
+fi
