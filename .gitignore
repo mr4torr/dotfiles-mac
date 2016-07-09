@@ -4,3 +4,5 @@ configs/nvim/bundle/*
 
 configs/fish/fish_history
 configs/fish/fishd.*
+
+.DS_Store
