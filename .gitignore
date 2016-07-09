@@ -1,0 +1,6 @@
+
+configs/nvim/bundle/*
+!configs/nvim/bundle/Vundle.vim
+
+configs/fish/fish_history
+configs/fish/fishd.*
