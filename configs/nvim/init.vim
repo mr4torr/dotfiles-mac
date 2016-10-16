@@ -95,6 +95,11 @@ endfunction
 
 " let g:SuperTabCompletionContexts = ['g:ContextText2']
 
+
+""""""" NERDTree   """""""
+let NERDTreeShowHidden=1
+
+
 """"""" Syntastic  """""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
