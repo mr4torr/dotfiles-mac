@@ -24,6 +24,7 @@ alias gall="gac && gps"
 
 alias dk="docker"
 alias dki="dc images"
+alias docker-exec="docker-compose exec web"
 
 alias dc="docker-compose"
 alias dcu="dc up"
@@ -72,6 +73,10 @@ function public (){
 
 }
 
+function docker-rails (){
+  docker-server --start
+  docker-exec rails s -b 0.0.0.0
+}
 function docker-server (){
   server_start=1
   server_stop=1
@@ -148,7 +153,7 @@ function docker-server (){
     then
     if [ "$server_middleman" = 1 ]
     then
-      middleman server
+      dc exec web middleman server
     else
       dc exec web bundle exec rails s -b 0.0.0.0
     fi
