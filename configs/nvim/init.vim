@@ -45,9 +45,12 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rake'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 
 " Custom plugins...
 " EasyMotion - Allows <leader><leader>(b|e) to jump to (b)eginning or (end)
@@ -73,6 +76,10 @@ Plugin 'airblade/vim-gitgutter'
 " Tab completion
 Plugin 'ervandew/supertab'
 
+Plugin 'sheerun/vim-polyglot'
+
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'mattn/emmet-vim'
 
 " After all plugins...
 call vundle#end()
@@ -127,7 +134,6 @@ set t_Co=256
  set colorcolumn=0
 
  set showmode
- set expandtab
  set showbreak=↪
  set novisualbell
 
@@ -136,6 +142,11 @@ set t_Co=256
  set incsearch " search as you type
  set gdefault  " global matching is default
  set smartcase " use smartcase, when search query starts with Uppercase, turn off case insensitive search<Paste>
+set ignorecase
+set smartcase
+
+set cmdheight=2
+
 " Always show status bar
 " set laststatus=2
 " Let plugins show effects after 500ms, not 4s
@@ -163,7 +174,15 @@ let &showbreak="\u21aa "
 """"""" Setting Themes """""""
 syntax enable
 set number showmatch
-set shiftwidth=4 tabstop=4 softtabstop=4 expandtab autoindent
+set shiftwidth=2 
+set tabstop=2 
+set softtabstop=2 
+set expandtab 
+set autoindent
+set smartindent
+set backspace=indent,eol,start
+
+
 "let python_highlight_all = 1
 let base16colorspace=256
 
@@ -176,6 +195,7 @@ set background=dark
 " colorscheme material-theme
 " colorscheme hybrid
 colorscheme jellybeans
+" colorscheme Monokai
 " colorscheme twilight
 
       " vim-airline
@@ -262,3 +282,16 @@ autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
 "autocmd FileAppendPre * :call TrimWhiteSpace()
 "autocmd FilterWritePre * :call TrimWhiteSpace()
 "autocmd BufWritePre * :call TrimWhiteSpace()
+
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
+map <silent> <C-\> :NERDTreeTabsToggle<CR>
+
+
+""""""""""""""""" Auto Pairs """""""""""""""
+
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+
+

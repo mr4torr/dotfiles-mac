@@ -74,9 +74,17 @@ function public (){
 }
 
 function docker-rails (){
-  docker-server --start
   docker-exec rails s -b 0.0.0.0
 }
+
+function docker-bundle (){
+  docker-exec bundle
+}
+
+function docker-rake (){
+  docker-exec rake
+}
+
 function docker-server (){
   server_start=1
   server_stop=1
