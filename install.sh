@@ -14,5 +14,5 @@ cp ~/dotfiles/copy/.zshrc ~/.zshrc
 mkdir -p ~/.config
 ln -s ~/dotfiles/configs/fish ~/.config
 ln -s ~/dotfiles/configs/nvim ~/.config
-
+ln -s ~/dotfiles/configs/nvim/init.vim ~/.vimrc
 nvim +PluginInstall +qall

@@ -13,7 +13,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Yggdroot/indentLine'
 Plugin 'szw/vim-ctrlspace'
@@ -26,36 +25,38 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'ap/vim-css-color'
 Plugin 'othree/html5.vim'
+Plugin 'isRuslan/vim-es6'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-rails'
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'heartsentwined/vim-emblem'
-Plugin 'smolnar/vim-ember-script'
-Plugin 'tpope/vim-cucumber'
+" Plugin 'heartsentwined/vim-emblem'
+" Plugin 'smolnar/vim-ember-script'
+" Plugin 'tpope/vim-cucumber'
 Plugin 'slim-template/vim-slim'
-Plugin 'dag/vim-fish'
+" Plugin 'dag/vim-fish'
 
 Plugin 'mattn/gist-vim'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rake'
-Plugin 'Rip-Rip/clang_complete'
+" Plugin 'Rip-Rip/clang_complete'
 Plugin 'thoughtbot/vim-rspec'
-" Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " Custom plugins...
 " EasyMotion - Allows <leader><leader>(b|e) to jump to (b)eginning or (end)
 " of words.
-Plugin 'easymotion/vim-easymotion'
+" Plugin 'easymotion/vim-easymotion'
 " Ctrl-P - Fuzzy file search
 Plugin 'kien/ctrlp.vim'
 " Neomake build tool (mapped below to <c-b>)
@@ -74,11 +75,12 @@ Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 
 " Tab completion
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew:help/supertab'
 
 Plugin 'sheerun/vim-polyglot'
 
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-scripts/closetag.vim'
 Plugin 'mattn/emmet-vim'
 
 " After all plugins...
@@ -101,7 +103,6 @@ endfunction
 " call SuperTabChain(Completefunc, '<c-n>')
 
 " let g:SuperTabCompletionContexts = ['g:ContextText2']
-
 
 """"""" NERDTree   """""""
 let NERDTreeShowHidden=1
@@ -145,7 +146,7 @@ set t_Co=256
 set ignorecase
 set smartcase
 
-set cmdheight=2
+set cmdheight=1
 
 " Always show status bar
 " set laststatus=2
@@ -174,13 +175,13 @@ let &showbreak="\u21aa "
 """"""" Setting Themes """""""
 syntax enable
 set number showmatch
-set shiftwidth=2 
-set tabstop=2 
-set softtabstop=2 
-set expandtab 
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
 set autoindent
 set smartindent
-set backspace=indent,eol,start
+"set backspace=indent,eol,start
 
 
 "let python_highlight_all = 1
@@ -193,23 +194,24 @@ let g:jellybeans_use_lowcolor_black = 0
 
 set background=dark
 " colorscheme material-theme
-" colorscheme hybrid
-colorscheme jellybeans
+" colorscheme hybrid_material
+colorscheme hybrid
+" colorscheme jellybeans
 " colorscheme Monokai
-" colorscheme twilight
+" colorscheme twilight256
 
-      " vim-airline
-      set laststatus=2
-      let g:airline_symbols = {}
-      let g:airline_theme = 'powerlineish'
-      let g:airline_powerline_fonts=1
-      let g:airline_left_sep = ''
-      let g:airline_left_alt_sep = ''
-      let g:airline_right_sep = ''
-      let g:airline_right_alt_sep = ''
-      let g:airline_symbols.branch = ''
-      let g:airline_symbols.readonly = ''
-      let g:airline_symbols.linenr  = ''
+" vim-airline
+set laststatus=2
+let g:airline_symbols = {}
+let g:airline_theme = 'powerlineish'
+let g:airline_powerline_fonts=1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr  = ''
 
 """"""" Keybindings """""""
 " Set up leaders
@@ -289,9 +291,18 @@ map <silent> <C-\> :NERDTreeTabsToggle<CR>
 
 
 """"""""""""""""" Auto Pairs """""""""""""""
-
 let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutBackInsert = '<M-b>'
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
+" let g:AutoPairsShortcutBackInsert = '<M-b>'
+let g:AutoPairsShortcutBackInsert = '<tab>'
+"let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
+""""""""""""""""" Ultisnips """""""""""""""
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"

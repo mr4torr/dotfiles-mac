@@ -76,14 +76,18 @@ function public (){
 function docker-rails (){
   docker-exec rails s -b 0.0.0.0
 }
+function docker-rake (){
+  docker-exec rails $1
+}
+
+function docker-migrate (){
+  docker-exec rails db:migrate db:migrate:status --trace
+}
 
 function docker-bundle (){
-  docker-exec bundle
+  docker-exec bundle $1
 }
 
-function docker-rake (){
-  docker-exec rake
-}
 
 function docker-server (){
   server_start=1
